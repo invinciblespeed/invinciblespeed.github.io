@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Project LANDLUBBER</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			body{
+				overflow-x: hidden;
+				color: #000;
+				font-family: rasterex, monospace;
+				font-size: 2em;
+				line-height: 0.67;
+				letter-spacing: 0px;
+				margin: 0;
+			}
+			#pink{
+				position: fixed;
+				height: 100vh;
+				width: 100vw;
+				background-color: #0FF;
+				top: 0;
+				left: 0;
+				z-index: 80;
+				clip-path: polygon(100% 0, 0 0, 0 20%, 100% 0);
+				animation-fill-mode: forwards;
+				transition: 0.25s;
+			}
+			#purple{
+				position: fixed;
+				height: 100vh;
+				width: 100vw;
+				background-color: #008080;
+				top: 0;
+				left: 0;
+				z-index: 79;
+				clip-path: polygon(100% 0, 0 0, 0 0, 100% 11%);
+				animation-fill-mode: forwards;
+				transition: 0.25s;
+			}
+			@font-face{
+				font-family: rasterex;
+				src: url(../../calls/8x12RasterEXv10.ttf);
+			}
+			.toptextlow{
+				color: #000;
+				font-family: rasterex, monospace;
+				font-size: 2em;
+				z-index: 81;
+				transform: rotate(-7deg);
+			}
+			@keyframes fadeAway{
+				0% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+			#topLoad{
+				display: block;
+				position: fixed;
+				height: 100vh;
+				width: 100vw;
+				background-color: #0FF;
+				top: 0;
+				left: 0;
+				z-index: 100;
+				animation: 3s forwards 0s 1 fadeAway;
+				pointer-events: none;
+			}
+			ul,li{
+				margin: 0px;
+				padding: 0px;
+			}
+			#eye, .headerButton{
+				position: absolute;
+				z-index: 81;
+				color: #000;
+				font-size: 1em;
+			}
+			.headerButton{
+				text-decoration: none;
+			}
+			#headerButtons{
+				position: absolute;
+				top: 0;
+				left: 0;
+				animation-fill-mode: forwards;
+				transition: 0.25s;
+			}
+			.mainContent{
+				width: 98vw;
+				height: 100vh;
+				position: relative;
+				margin: auto;
+				text-align: center;
+			}
+			.center{
+				margin: 0;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				-ms-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+				width: 100%
+			}
+			@keyframes shake {
+				0% { transform: translate(2px, 1px)} 
+				10% { transform: translate(-1px, -2px)}
+				20% { transform: translate(-3px, 0px)}
+				30% { transform: translate(0px, 2px)}
+				40% { transform: translate(1px, -1px)}
+				50% { transform: translate(-1px, 2px)}
+				60% { transform: translate(-3px, 1px)}
+				70% { transform: translate(2px, 1px)}
+				80% { transform: translate(-1px, -1px)}
+				90% { transform: translate(2px, 2px)}
+				100% { transform: translate(1px, -2px)}
+			}
+			#eye:hover{
+				animation-name: shake;
+				animation-duration: 0.25s;
+				transform-origin: 50%, 50%;
+				animation-iteration-count: infinite;
+			}
+
+		</style>
+	</head>
+	<body style="background-color: #FFF;">
+		<div id="topLoad"></div>
+		<div id="headerButtons">
+			<div id="eye" style="top: 0; left: 0.5em; font-size: 1.5em;">
+				<ul style="list-style-type:none;">
+					<!--		||		||		||		||		||		||		||		||
+						<li>	&nbsp;	&nbsp;	&nbsp;	_		_		&nbsp;	&nbsp;	&nbsp;	</li>
+						<li>	&nbsp;	/		"		&nbsp;	&nbsp;	"		\		&nbsp;	</li>
+						<li>	(		&nbsp;	&lt;	(		)		&gt;	&nbsp;	)		</li>
+						<li>	&nbsp;	\		.		_		_		.		/		&nbsp;	</li>
+								||		||		||		||		||		||		||		||
+						
+						|   __   |
+						| /"  "\ |
+						|( <()> )|
+						| \.__./ |
+					-->
+					<li id="row1">&nbsp;&nbsp;&nbsp;__&nbsp;&nbsp;&nbsp;</li>
+					<li id="row2">&nbsp;/"&nbsp;&nbsp;"\&nbsp;</li>
+					<li id="row3">(&nbsp;&lt;()&gt;&nbsp;)</li>
+					<li id="row4">&nbsp;\.__./&nbsp;</li>
+				</ul>
+
+     <!-- /|____                           /\                           ____|\ -->
+    <!-- / :\   \__    _/\    ____________//\\____________    /\_    __/   /: \ -->
+   <!-- / _. \     \ /     \_/            \\//            \_/     \ /     / ._ \ -->
+<!-- . / //   \     /          B E C O M E   O P   2 . 2:          \     /   \\ \ . -->
+<!-- :// <     )    \___/  _____  END OF (YOUR) WORLD   _____  \___/    (     > \\: -->
+<!-- |/   \   ( \   /  /  /     \__    .   __   .    __/     \  \  \   / )   /   \| -->
+<!-- :     \   ) `\(  <  (    -=*  \  /  /"  "\  \  /  *=-    )  >  )/' (   /     : -->
+<!-- .      > /    `\  \ \   -=* _    \ ( <()> ) /   ,_ *=-   / /  /'    \ <      . -->
+        <!-- \\      `  `\\       `\_    \.__./    _/        //'  '      // -->
+         <!-- `\.          `                                '          ,/' -->
+
+			</div>
+			<a class="headerButton" id="link1" style="top: 0.8em; left: 6em;" href="https://invinciblespeed.github.io/">
+				&nbsp;[HOME]&nbsp;
+			</a>
+			<a class="headerButton" id="link2" style="top: 0.8em; left: 10em;" href="https://invinciblespeed.github.io/contact">
+				&nbsp;[CONTACT]&nbsp;
+			</a>
+			<a class="headerButton" id="link3" style="top: 0.8em; left: 15.5em;" href="https://upload.wikimedia.org/wikipedia/commons/3/37/Sus_Barbatus,_the_Bornean_Bearded_Pig_(12616351323).jpg">
+				&nbsp;[PIG]&nbsp;
+			</a>
+			<a class="headerButton" id="link4" style="top: 3.5em; left: 6em; transform: rotate(-5deg);" href="../../dl/Project LANDLUBBER v0055.3.zip">
+				&nbsp;[DOWNLOAD]&nbsp;
+			</a>
+			<a class="headerButton" id="link5" style="top: 3.05em; left: 11.5em; transform: rotate(-5deg);" href="link5">
+				&nbsp;[DONATE]&nbsp;
+			</a>
+		</div>
+		<div id="pink"></div>
+		<div id="purple"></div>
+		<div class="mainContent" style="font-size: 5em;">
+			<div class="center">
+				<ul style="list-style-type:none;">
+					<li>&nbsp;&nbsp;&nbsp;__&nbsp;&nbsp;&nbsp;</li>
+					<li>&nbsp;/"&nbsp;&nbsp;"\&nbsp;</li>
+					<li>(&nbsp;&lt;()&gt;&nbsp;)</li>
+					<li>&nbsp;\.__./&nbsp;</li>
+				</ul>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="center">
+				<div style="display: flex; justify-content: space-around; align-items: center;">
+					<div style="max-width: 30vw;">Developed over the last year in largely mostly slightly maybe not secret conditions, Project LANDLUBBER is something of a tech demo for what may one day be the greatest text adventure ever created in batch.</div>
+					<img style="max-width: 30vw;" src="./pix/img.png" alt="LIGHTHOUSE">
+					<div style="max-width: 30vw;">Featuring music, imporved ascii art, graphical puzzles, better writing and advanced combat, Project LANDLUBBER is nothing short of a 20-minute epic.</div>
+				</div>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="center">
+				<a href="../../dl/Project LANDLUBBER v0055.3.zip">Download Project LANDLUBBER for Windows XP, Vista, 7, 8, 8.1, or 10.</a>
+			</div>
+		</div>
+	</body>
+</html>
+
+<script>
+	window.onscroll = function(){scrollFunction()};
+	
+	function scrollFunction(){
+		if(document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+
+			//PINK CLOSE//
+
+			document.getElementById("pink").style.clipPath = "polygon(100% 0, 0 0, 0 1.75%, 100% 1.75%)";
+
+			console.log("Pink Close");
+
+			//PINK CLOSE//
+			
+			//PURPLE CLOSE//
+
+			document.getElementById("purple").style.clipPath = "polygon(100% 0, 0 0, 0 2.5%, 100% 2.5%)";
+
+			console.log("Purple Close");
+
+			//PURPLE CLOSE//
+
+			//HEADER CLOSE//
+
+			document.getElementById("headerButtons").style.top = "-150px";
+			
+
+			//HEADER CLOSE//
+		}
+		else{
+
+			//PINK OPEN//
+
+			document.getElementById("pink").style.clipPath = "polygon(100% 0, 0 0, 0 20%, 100% 0)";
+
+			console.log("Pink Open");
+
+			//PINK OPEN//
+
+			//PURPLE OPEN//
+
+			document.getElementById("purple").style.clipPath = "polygon(100% 0, 0 0, 0 0, 100% 11%)";
+
+			console.log("Purple Open");
+
+			//PURPLE OPEN//
+
+			//HEADER OPEN//
+
+			document.getElementById("headerButtons").style.top = "0px";
+
+			//HEADER OPEN//
+		}
+	}
+
+	const link1 = document.getElementById("link1");
+	const link2 = document.getElementById("link2");
+	const link3 = document.getElementById("link3");
+	const link4 = document.getElementById("link4");
+	const link5 = document.getElementById("link5");
+
+	const row1 = document.getElementById("row1");
+	const row2 = document.getElementById("row2");
+	const row3 = document.getElementById("row3");
+	const row4 = document.getElementById("row4");
+
+	//   __   // 1
+	// /"  "\ // 2
+	//( <()> )// 3
+	// \.__./ // 4
+	
+	//	!IMPORTANT!																//
+	//	USE ALT+255 INSTEAD OF SPACES IN THE JAVASCRIPT QUOTES FOR THIS PART	//
+	//	BACKSLASHES MUST BE ESCAPED BY ANOTHER BACKSLASH (\\ INSTEAD OF \)		//
+
+	link1.addEventListener("mouseenter", e=>{
+		link1.textContent = "[ HOME ]";
+
+		row1.textContent = "   __   ";
+		row2.textContent = ' /"<()> ';
+		row3.textContent = "(      )";
+		row4.textContent = " \\.__./ ";
+
+		console.log("Enter 1");
+	})
+
+	link1.addEventListener("mouseleave", e=>{
+		link1.textContent = " [HOME] ";
+
+		row1.textContent = "   __   ";
+		row2.textContent = ' /"  "\\ ';
+		row3.textContent = "( <()> )";
+		row4.textContent = " \\.__./ ";
+
+		console.log("Leave 1");
+	})
+
+	link2.addEventListener("mouseenter", e=>{
+		link2.textContent = "[ CONTACT ]";
+
+		row1.textContent = "   __   ";
+		row2.textContent = ' /" <() ';
+		row3.textContent = "(      )";
+		row4.textContent = " \\.__./ ";
+
+		console.log("Enter 2");
+	})
+
+	link2.addEventListener("mouseleave", e=>{
+		link2.textContent = " [CONTACT] ";
+
+		row1.textContent = "   __   ";
+		row2.textContent = ' /"  "\\ ';
+		row3.textContent = "( <()> )";
+		row4.textContent = " \\.__./ ";
+
+		console.log("Leave 2");
+	})
+
+	link3.addEventListener("mouseenter", e=>{
+		link3.textContent = "[ PIG ]";
+
+		row1.textContent = "   __   ";
+		row2.textContent = ' /"  "\\ ';
+		row3.textContent = "(    <()";
+		row4.textContent = " \\.__./ ";
+
+		console.log("Enter 3");
+	})
+
+	link3.addEventListener("mouseleave", e=>{
+		link3.textContent = " [PIG] ";
+
+		row1.textContent = "   __   ";
+		row2.textContent = ' /"  "\\ ';
+		row3.textContent = "( <()> )";
+		row4.textContent = " \\.__./ ";
+
+		console.log("Leave 3");
+	})
+
+	link4.addEventListener("mouseenter", e=>{
+		link4.textContent = "[ DOWNLOAD ]";
+
+		row1.textContent = "   __   ";
+		row2.textContent = ' /"  "\\ ';
+		row3.textContent = "(      )";
+		row4.textContent = " \\.<()> ";
+
+		console.log("Enter 4");
+	})
+
+	link4.addEventListener("mouseleave", e=>{
+		link4.textContent = " [DOWNLOAD] ";
+
+		row1.textContent = "   __   ";
+		row2.textContent = ' /"  "\\ ';
+		row3.textContent = "( <()> )";
+		row4.textContent = " \\.__./ ";
+
+		console.log("Leave 4");
+	})
+
+	link5.addEventListener("mouseenter", e=>{
+		link5.textContent = "[ DONATE ]";
+
+		row1.textContent = "   __   ";
+		row2.textContent = ' /"  "\\ ';
+		row3.textContent = "(  <()>)";
+		row4.textContent = " \\.__./ ";
+
+		console.log("Enter 5");
+	})
+
+	link5.addEventListener("mouseleave", e=>{
+		link5.textContent = " [DONATE] ";
+
+		row1.textContent = "   __   ";
+		row2.textContent = ' /"  "\\ ';
+		row3.textContent = "( <()> )";
+		row4.textContent = " \\.__./ ";
+
+		console.log("Leave 5");
+	})
+</script>
